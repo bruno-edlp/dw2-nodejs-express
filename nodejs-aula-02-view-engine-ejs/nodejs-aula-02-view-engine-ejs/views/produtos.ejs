@@ -7,10 +7,15 @@
 </head>
 <body>
     <h1>Confira esse produto:</h1>
-    <ul>
-        <!-- Chamando variável com tags do EJS -->
-        <li><%= produto %></li>
-    </ul>
+    <!-- ! = operador NOT: verifica se é falso -->
+    <% if (!produto) { %>
+        <% produtos.forEach(produto => { %>
+            <p><a href="/produtos/<%= produto %>"><%= produto %></a></p>
+        <% }) %>
+    <% } else { %>
+        <p><%= produto %></p>
+    <% } %>
+
     <hr>
     <p>Faça seu pedido agora!</p>
 </body>
